@@ -1,6 +1,6 @@
 # Address Book exercise for Epicodus
 
-### Cynthia Wilhelm & Tom Mertz
+### Cynthia Wilhelm | Tom Mertz | Kenna Warsinske
 
 ###### April 13, 2015
 

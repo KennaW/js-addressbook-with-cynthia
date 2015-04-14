@@ -12,22 +12,31 @@ $(document).ready(function() {
     var cityForm = $("input#city").val();
     var stateForm = $("input#state").val();
 
-    var contact = {
-      firstName: firstNameForm,
-      lastName: lastNameForm,
-      street: streetForm,
+    var newAddress = { street: streetForm,
       city: cityForm,
-      state: stateForm
+      state: stateForm,
+       fullAddress: function() {
+        return this.street + ", " + this.city + ", " + this.state;
+      }
     };
 
-    $("#contact-list").append("<li><span class='contact clickable'>" + contact.firstName + "</span></li>");
+    var newContact = {
+      firstName: firstNameForm,
+      lastName: lastNameForm,
+      address: newAddress.fullAddress()
+      };
+
+    $("#contact-list").append("<li><span class='contact clickable'>" + newContact.firstName + "</span></li>");
+
+    $("input#firstName").val("");
+    $("input#lastName").val("");
+    $("input#street").val("");
+    $("input#city").val("");
+    $("input#state").val("");
 
     $(".contact").last().click(function() {
-      $(".first-name").text(contact.firstName);
-      $(".last-name").text(contact.lastName);
-      $(".street").text(contact.street);
-      $(".city").text(contact.city);
-      $(".state").text(contact.state);
+      $(".name").text(newContact.firstName + " " + newContact.lastName);
+      $(".address").text(newContact.address);
       $("#contacts").show();
     });
 
